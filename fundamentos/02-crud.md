@@ -11,7 +11,8 @@
 2. Instalar as bibliotecas
 3. Executar a API Restful
 4. Criar CRUD
-5. Configurar 
+5. Modificar a entidade
+6. Modificar o DTO 
 
 ## Links
 - [Criando o primeiro CRUD com NestJS](https://www.treinaweb.com.br/blog/criando-o-primeiro-crud-com-nestjs)
