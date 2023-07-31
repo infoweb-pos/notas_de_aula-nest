@@ -11,6 +11,7 @@
 2. [Executar a API Restful](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/01-novo_projeto.md#2-executar-a-api-restful)
 3. [Testar a API Restful](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/01-novo_projeto.md#3-testar-a-api-restful)
 
+[código-fonte compactado](https://github.com/infoweb-pos/2023-notas_de_aula-nest/archive/refs/tags/01-projeto-novo.zip)
 
 # 1. Criar um projeto novo
 1. Instalar o `node`, e `vs code`
