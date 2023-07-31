@@ -8,7 +8,7 @@
 ## Sumário
 1. Fundamentos básicos
    1. [Primeiro projeto](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/01-novo_projeto.md)
-   2. 
+   2. [crud](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md)
 
 ## Links
 - [REST: Princípios e boas práticas](https://www.alura.com.br/artigos/rest-principios-e-boas-praticas)
