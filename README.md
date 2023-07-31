@@ -7,5 +7,9 @@
 
 ## Sumário
 1. Fundamentos básicos
-   1. Primeiro projeto
+   1. [Primeiro projeto](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/01-novo_projeto.md)
    2. 
+
+## Links
+- [REST: Princípios e boas práticas](https://www.alura.com.br/artigos/rest-principios-e-boas-praticas)
+- [Níveis de maturidade de uma API REST](https://www.programmers.com.br/blog/niveis-de-maturidade-de-uma-api-rest/)
