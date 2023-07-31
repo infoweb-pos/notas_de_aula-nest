@@ -7,12 +7,11 @@
 
 
 ## Sumário
-1. Baixar o projeto inicial
-2. Instalar as bibliotecas
-3. Executar a API Restful
-4. Criar CRUD
-5. Modificar a entidade
-6. Modificar o DTO 
+1. [Baixar o projeto inicial](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#1-baixar-o-projeto-inicial)
+2. [Instalar as bibliotecas](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#2-instalar-as-bibliotecas)
+3. [Criar CRUD]()
+4. Modificar a entidade
+5. Modificar o DTO 
 
 ## Links
 - [Criando o primeiro CRUD com NestJS](https://www.treinaweb.com.br/blog/criando-o-primeiro-crud-com-nestjs)
@@ -50,7 +49,9 @@ $ cd api
 ```
 
 # 3. Criar CRUD
-1. Ainda no terminal
+1. Abrir um segundo terminal.
+2. Executar o comando `nest` para gerar código `npx nest generate resource tarefas --no-spec`
+3. Observar no primeiro terminal se atualizou _endpoints_
 
 ```console
 [api] $ npx nest generate resource tarefas --no-spec
@@ -79,4 +80,23 @@ UPDATE src/app.module.ts (320 bytes)
 [api] $ 
 ```
 
+**terminal de monitoramento da API**
+```console
+[11:33:53] File change detected. Starting incremental compilation...
 
+[11:33:53] Found 0 errors. Watching for file changes.
+
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [NestFactory] Starting Nest application...
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [InstanceLoader] AppModule dependencies initialized +10ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [InstanceLoader] TarefasModule dependencies initialized +0ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RoutesResolver] AppController {/}: +9ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RouterExplorer] Mapped {/, GET} route +2ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RoutesResolver] TarefasController {/tarefas}: +0ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RouterExplorer] Mapped {/tarefas, POST} route +1ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RouterExplorer] Mapped {/tarefas, GET} route +0ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RouterExplorer] Mapped {/tarefas/:id, GET} route +1ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RouterExplorer] Mapped {/tarefas/:id, PATCH} route +0ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [RouterExplorer] Mapped {/tarefas/:id, DELETE} route +0ms
+[Nest] 15876  - 31/07/2023, 11:33:54     LOG [NestApplication] Nest application successfully started +6ms
+
+```
