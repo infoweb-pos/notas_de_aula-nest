@@ -13,13 +13,13 @@
 4. [Modificar a entidade](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#4-modificar-a-entidade)
 5. [Modificar o DTO de Criação](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#5-modificar-o-dto-de-cria%C3%A7%C3%A3o)
 6. [Configurar o acesso ao SQLite](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#6-configurar-o-acesso-ao-sqlite)
-7. Programar para criar nova tarefa com o endpoint /tarefas e método POST
-8. Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET
-9. Programar para recuperar uma tarefa com o endpoint /tarefas/:id e método GET
-10. Programar para apagar uma tarefa com o endpoint /tarefas/:id e método DELETE
-11. Programar para atualizar o texto de uma tarefa com o endpoint /tarefas/:id e o método PUT
-12. Programar para finalizar uma tarefa com o endpoint /tarefas/:id/finalizar e o método PUT
-13. Programar para finalizar uma tarefa com o endpoint /tarefas/:id/abrir e o método PUT
+7. [Programar para criar nova tarefa com o endpoint /tarefas e método POST](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#7-programar-para-criar-nova-tarefa-com-o-endpoint-tarefas-e-m%C3%A9todo-post)
+8. [Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#8-programar-para-recuperar-todas-as-tarefas-com-o-endpoint-tarefas-e-m%C3%A9todo-get)
+9. [Programar para recuperar uma tarefa com o endpoint /tarefas/:id e método GET](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#9-programar-para-recuperar-uma-tarefa-com-o-endpoint-tarefasid-e-m%C3%A9todo-get)
+10. [Programar para apagar uma tarefa com o endpoint /tarefas/:id e método DELETE](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#9-programar-para-recuperar-uma-tarefa-com-o-endpoint-tarefasid-e-m%C3%A9todo-get)
+11. [Programar para atualizar o texto de uma tarefa com o endpoint /tarefas/:id e o método PUT](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#11-programar-para-atualizar-o-texto-de-uma-tarefa-com-o-endpoint-tarefasid-e-o-m%C3%A9todo-put)
+12. [Programar para finalizar uma tarefa com o endpoint /tarefas/:id/finalizar e o método PUT](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#12-programar-para-finalizar-uma-tarefa-com-o-endpoint-tarefasidfinalizar-e-o-m%C3%A9todo-put)
+13. [Programar para finalizar uma tarefa com o endpoint /tarefas/:id/abrir e o método PUT](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#13-programar-para-finalizar-uma-tarefa-com-o-endpoint-tarefasidabrir-e-o-m%C3%A9todo-put)
 
 ## Links
 - [Criando o primeiro CRUD com NestJS](https://www.treinaweb.com.br/blog/criando-o-primeiro-crud-com-nestjs)
