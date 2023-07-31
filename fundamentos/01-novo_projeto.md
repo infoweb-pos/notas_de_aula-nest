@@ -50,8 +50,8 @@ CREATE projeto/test/jest-e2e.json (183 bytes)
 🚀  Successfully created project projeto
 👉  Get started with the following commands:
 
-$ cd apinpm 
-$ npm run start
+$ cd api
+$ npm run start:dev
 
                                          
                           Thanks for installing Nest 🙏
