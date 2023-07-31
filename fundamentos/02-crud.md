@@ -10,8 +10,10 @@
 1. [Baixar o projeto inicial](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#1-baixar-o-projeto-inicial)
 2. [Instalar as bibliotecas](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#2-instalar-as-bibliotecas)
 3. [Criar CRUD](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#3-criar-crud)
-4. Modificar a entidade
-5. Modificar o DTO de Criação
+4. [Modificar a entidade](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#4-modificar-a-entidade)
+5. [Modificar o DTO de Criação](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#5-modificar-o-dto-de-cria%C3%A7%C3%A3o)
+6. [Configurar o acesso ao SQLite]()
+7. 
 
 ## Links
 - [Criando o primeiro CRUD com NestJS](https://www.treinaweb.com.br/blog/criando-o-primeiro-crud-com-nestjs)
@@ -19,7 +21,8 @@
   - Anotações [decoradores](https://www.typescriptlang.org/docs/handbook/decorators.html#decorators)
   - [Genéricos](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - TypeORM
-  - 
+  - [Opção para declarar entidades](https://typeorm.io/entities#column-options)
+
 
 
 # 1. Baixar o projeto inicial
@@ -147,4 +150,64 @@ export class CreateTarefaDto {
 ```
 
 
-# 6. 
+# 6. Configurar o acesso ao SQLite
+1. Criar o arquivo `./src/ormconfig.ts` para configurar o acesso ao mecanismo de repositório.
+2. Modificar o arquivo `./src/app.module.ts` para usar a configuração de acesso ao repositório.
+3. Verificar a saída do primeiro terminal que excuta o terminal.
+
+arquivo `./src/ormconfig.ts`
+```typescript
+import { DataSourceOptions } from 'typeorm';
+
+export const config: DataSourceOptions = {
+  type: 'sqlite',
+  database: '.db/database.sqlite',
+  synchronize: true,
+  dropSchema: true,
+  entities: [__dirname + '/**/entities/*.entity{.ts,.js}'],
+};
+
+```
+
+arquivo `./src/app.module.ts`
+```typescript
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { TarefasModule } from './tarefas/tarefas.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { config } from './ormconfig';
+
+@Module({
+  imports: [TarefasModule, TypeOrmModule.forRoot(config)],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
+```
+
+```console
+[17:40:02] File change detected. Starting incremental compilation...
+
+[17:40:04] Found 0 errors. Watching for file changes.
+
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [NestFactory] Starting Nest application...
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [InstanceLoader] TypeOrmModule dependencies initialized +99ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [InstanceLoader] AppModule dependencies initialized +1ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [InstanceLoader] TarefasModule dependencies initialized +0ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [InstanceLoader] TypeOrmCoreModule dependencies initialized +137ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RoutesResolver] AppController {/}: +12ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RouterExplorer] Mapped {/, GET} route +2ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RoutesResolver] TarefasController {/tarefas}: +0ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RouterExplorer] Mapped {/tarefas, POST} route +1ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RouterExplorer] Mapped {/tarefas, GET} route +1ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RouterExplorer] Mapped {/tarefas/:id, GET} route +0ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RouterExplorer] Mapped {/tarefas/:id, PATCH} route +0ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [RouterExplorer] Mapped {/tarefas/:id, DELETE} route +1ms
+[Nest] 22524  - 31/07/2023, 17:40:05     LOG [NestApplication] Nest application successfully started +2ms
+
+```
+
+
+# 7. 
