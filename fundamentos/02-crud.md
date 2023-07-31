@@ -12,8 +12,14 @@
 3. [Criar CRUD](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#3-criar-crud)
 4. [Modificar a entidade](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#4-modificar-a-entidade)
 5. [Modificar o DTO de Criação](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#5-modificar-o-dto-de-cria%C3%A7%C3%A3o)
-6. [Configurar o acesso ao SQLite]()
-7. 
+6. [Configurar o acesso ao SQLite](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#6-configurar-o-acesso-ao-sqlite)
+7. Programar para criar nova tarefa com o endpoint /tarefas e método POST
+8. Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET
+9. Programar para recuperar uma tarefa com o endpoint /tarefas/:id e método GET
+10. Programar para apagar uma tarefa com o endpoint /tarefas/:id e método DELETE
+11. Programar para atualizar o texto de uma tarefa com o endpoint /tarefas/:id e o método PUT
+12. Programar para finalizar uma tarefa com o endpoint /tarefas/:id/finalizar e o método PUT
+13. Programar para finalizar uma tarefa com o endpoint /tarefas/:id/abrir e o método PUT
 
 ## Links
 - [Criando o primeiro CRUD com NestJS](https://www.treinaweb.com.br/blog/criando-o-primeiro-crud-com-nestjs)
@@ -210,4 +216,33 @@ export class AppModule {}
 ```
 
 
-# 7. 
+# 7. Programar para criar nova tarefa com o endpoint /tarefas e método POST
+
+
+
+# 8. Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET
+
+
+
+# 9. Programar para recuperar uma tarefa com o endpoint /tarefas/:id e método GET
+
+
+
+
+# 10. Programar para apagar uma tarefa com o endpoint /tarefas/:id e método DELETE
+
+
+
+
+# 11. Programar para atualizar o texto de uma tarefa com o endpoint /tarefas/:id e o método PUT
+
+
+
+
+# 12. Programar para finalizar uma tarefa com o endpoint /tarefas/:id/finalizar e o método PUT
+
+
+
+
+# 13. Programar para finalizar uma tarefa com o endpoint /tarefas/:id/abrir e o método PUT
+
