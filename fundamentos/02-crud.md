@@ -26,6 +26,8 @@
 $ cd api
 
 [api] $ npm i @nestjs/typeorm typeorm sqlite3
+
+[api] $ npm i --save sqlite3
 ```
 
 # 3. Criar CRUD
