@@ -9,19 +9,24 @@
 ## Sumário
 1. [Baixar o projeto inicial](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#1-baixar-o-projeto-inicial)
 2. [Instalar as bibliotecas](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#2-instalar-as-bibliotecas)
-3. [Criar CRUD]()
+3. [Criar CRUD](https://github.com/infoweb-pos/notas_de_aula-nest/blob/main/fundamentos/02-crud.md#3-criar-crud)
 4. Modificar a entidade
-5. Modificar o DTO 
+5. Modificar o DTO de Criação
 
 ## Links
 - [Criando o primeiro CRUD com NestJS](https://www.treinaweb.com.br/blog/criando-o-primeiro-crud-com-nestjs)
 - Typescript
   - Anotações [decoradores](https://www.typescriptlang.org/docs/handbook/decorators.html#decorators)
   - [Genéricos](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- TypeORM
+  - 
+
 
 # 1. Baixar o projeto inicial
 1. Baixar o projeto [zip](https://github.com/infoweb-pos/2023-notas_de_aula-nest/archive/refs/tags/01-projeto-novo.zip).
 2. Descompactar em uma pasta do seu computador.
+
+
 
 # 2. Instalar as bibliotecas
 1. Abrir o terminal do sistema ou do VS Code.
@@ -47,6 +52,8 @@ $ cd api
 
 
 ```
+
+
 
 # 3. Criar CRUD
 1. Abrir um segundo terminal.
@@ -100,3 +107,44 @@ UPDATE src/app.module.ts (320 bytes)
 [Nest] 15876  - 31/07/2023, 11:33:54     LOG [NestApplication] Nest application successfully started +6ms
 
 ```
+
+
+
+# 4. Modificar a entidade
+1. Editar o arquivo `./src/tarefas/entities/tarefa.entity.ts`
+2. Adicione os atributos e suas anotações na classe `Tarefa`
+
+arquivo `./src/tarefas/entities/tarefa.entity.ts`
+```typescript
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class Tarefa {
+  @PrimaryGeneratedColumn('increment')
+  id: number;
+
+  @Column()
+  titulo: string;
+
+  @Column({ default: false })
+  feito: boolean;
+}
+
+```
+
+
+
+# 5. Modificar o DTO de Criação
+1. Editar o arquivo `./src/tarefas/dto/create-tarefa.dto.ts`
+2. Adicione os atributos ao DTO `Tarefa`
+
+arquivo `./src/tarefas/dto/create-tarefa.dto.ts`
+```typescript
+export class CreateTarefaDto {
+  titulo: string;
+}
+
+```
+
+
+# 6. 
