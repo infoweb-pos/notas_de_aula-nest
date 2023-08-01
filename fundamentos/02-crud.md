@@ -217,8 +217,32 @@ export class AppModule {}
 
 
 # 7. Programar para criar nova tarefa com o endpoint /tarefas e método POST
+1. Acessar o endpoint `http://localhost:3000/tarefas` com o método POST. O retorno esperado é o texto `This action adds a new tarefa`.
+2. Modificar o arquivo `./src/tarefas/tarefa.module.ts`, para configurar o repositório com a entidade `Tarefa`.
+3. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
+4. 
 
+arquivo `./src/tarefas/tarefa.module.ts`
+```typescript
+import { Module } from '@nestjs/common';
+import { TarefasService } from './tarefas.service';
+import { TarefasController } from './tarefas.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Tarefa } from './entities/tarefa.entity';
 
+@Module({
+  imports: [TypeOrmModule.forFeature([Tarefa])],
+  controllers: [TarefasController],
+  providers: [TarefasService],
+})
+export class TarefasModule {}
+
+```
+
+arquivo `./src/tarefas/tarefa.module.ts`
+```typescript
+
+```
 
 # 8. Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET
 
