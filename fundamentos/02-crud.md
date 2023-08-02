@@ -221,7 +221,21 @@ export class AppModule {}
 2. Modificar o arquivo `./src/tarefas/tarefa.module.ts`, para configurar o repositório com a entidade `Tarefa`.
 3. Modificar o arquivo `./src/tarefas/tarefa.controller.ts`, para configurar a resposta de retorno.
 4. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
-5. 
+5. Verificar o resultado acessando o endpoint `/tarefas` com o método `POST`, passando o _json_ no corpo da requisição `{"titulo": "texto"}`.
+
+Resultado da requisição do endpoint `/tarefas` com método POST.
+```http
+HTTP/1.1 201 Created
+connection: close
+content-length: 29
+content-type: text/html; charset=utf-8
+date: Wed, 02 Aug 2023 11:55:02 GMT
+etag: W/"1d-hWfUaGusnbHS1I/1dUNR2Td+Img"
+x-powered-by: Express
+
+This action adds a new tarefa
+
+```
 
 arquivo `./src/tarefas/tarefa.module.ts`
 ```typescript
@@ -326,8 +340,27 @@ export class TarefasService {
 
 ```
 
-# 8. Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET
+Resultado da requisição do endpoint `/tarefas` com método POST.
+```http
+HTTP/1.1 201 Created
+connection: close
+content-length: 71
+content-type: application/json; charset=utf-8
+date: Tue, 01 Aug 2023 14:05:33 GMT
+etag: W/"47-yFQknRuBU5nWfN/k0Rs6vMhzWhU"
+x-powered-by: Express
 
+{"estado":"ok","dados":{"titulo":"Criar tarefa usando o endpoint","id":1,"feito":false}}
+
+```
+
+
+# 8. Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET
+1. Acessar o endpoint `http://localhost:3000/tarefas` com o método POST. O retorno esperado é o texto `This action adds a new tarefa`.
+2. Modificar o arquivo `./src/tarefas/tarefa.module.ts`, para configurar o repositório com a entidade `Tarefa`.
+3. Modificar o arquivo `./src/tarefas/tarefa.controller.ts`, para configurar a resposta de retorno.
+4. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
+5. Verificar o resultado acessando o endpoint `/tarefas` com o método `POST`, passando o _json_ no corpo da requisição `{"titulo": "texto"}`.
 
 
 # 9. Programar para recuperar uma tarefa com o endpoint /tarefas/:id e método GET
