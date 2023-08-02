@@ -219,8 +219,9 @@ export class AppModule {}
 # 7. Programar para criar nova tarefa com o endpoint /tarefas e método POST
 1. Acessar o endpoint `http://localhost:3000/tarefas` com o método POST. O retorno esperado é o texto `This action adds a new tarefa`.
 2. Modificar o arquivo `./src/tarefas/tarefa.module.ts`, para configurar o repositório com a entidade `Tarefa`.
-3. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
-4. 
+3. Modificar o arquivo `./src/tarefas/tarefa.controller.ts`, para configurar a resposta de retorno.
+4. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
+5. 
 
 arquivo `./src/tarefas/tarefa.module.ts`
 ```typescript
@@ -236,6 +237,56 @@ import { Tarefa } from './entities/tarefa.entity';
   providers: [TarefasService],
 })
 export class TarefasModule {}
+
+```
+
+arquivo `./src/tarefas/tarefa.controller.ts`
+```typescript
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { TarefasService } from './tarefas.service';
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+
+@Controller('tarefas')
+export class TarefasController {
+  constructor(private readonly tarefasService: TarefasService) {}
+
+  @Post()
+  async create(@Body() createTarefaDto: CreateTarefaDto) {
+    return {
+      estado: 'ok',
+      dados: await this.tarefasService.create(createTarefaDto),
+    };
+  }
+
+  @Get()
+  findAll() {
+    return this.tarefasService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.tarefasService.findOne(+id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateTarefaDto: UpdateTarefaDto) {
+    return this.tarefasService.update(+id, updateTarefaDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tarefasService.remove(+id);
+  }
+}
 
 ```
 
