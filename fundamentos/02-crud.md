@@ -290,8 +290,39 @@ export class TarefasController {
 
 ```
 
-arquivo `./src/tarefas/tarefa.module.ts`
+arquivo `./src/tarefas/tarefa.service.ts`
 ```typescript
+import { Injectable } from '@nestjs/common';
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+
+@Injectable()
+export class TarefasService {
+  constructor(
+    @InjectRepository(Tarefa) private repositorio: Repository<Tarefa>,
+  ) {}
+
+  create(createTarefaDto: CreateTarefaDto) {
+    console.log(createTarefaDto);
+    return this.repositorio.save(createTarefaDto);
+  }
+
+  findAll() {
+    return `This action returns all tarefas`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} tarefa`;
+  }
+
+  update(id: number, updateTarefaDto: UpdateTarefaDto) {
+    return `This action updates a #${id} tarefa`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} tarefa`;
+  }
+}
 
 ```
 
