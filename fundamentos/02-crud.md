@@ -377,13 +377,92 @@ This action returns all tarefas
 
 arquivo `./src/tarefas/tarefa.controller.ts`
 ```typescript
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { TarefasService } from './tarefas.service';
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
 
+@Controller('tarefas')
+export class TarefasController {
+  constructor(private readonly tarefasService: TarefasService) {}
+
+  @Post()
+  async create(@Body() createTarefaDto: CreateTarefaDto) {
+    return {
+      estado: 'ok',
+      dados: await this.tarefasService.create(createTarefaDto),
+    };
+  }
+
+  @Get()
+  async findAll() {
+    return {
+      estado: 'ok',
+      dados: await this.tarefasService.findAll(),
+    };
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.tarefasService.findOne(+id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateTarefaDto: UpdateTarefaDto) {
+    return this.tarefasService.update(+id, updateTarefaDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tarefasService.remove(+id);
+  }
+}
 
 ```
 
 arquivo `./src/tarefas/tarefa.service.ts`
 ```typescript
+import { Injectable } from '@nestjs/common';
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Tarefa } from './entities/tarefa.entity';
 
+@Injectable()
+export class TarefasService {
+  constructor(
+    @InjectRepository(Tarefa) private repositorio: Repository<Tarefa>,
+  ) {}
+
+  create(createTarefaDto: CreateTarefaDto) {
+    return this.repositorio.save(createTarefaDto);
+  }
+
+  findAll() {
+    return this.repositorio.find();
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} tarefa`;
+  }
+
+  update(id: number, updateTarefaDto: UpdateTarefaDto) {
+    return `This action updates a #${id} tarefa`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} tarefa`;
+  }
+}
 
 ```
 
@@ -416,7 +495,132 @@ x-powered-by: Express
 
 
 # 9. Programar para recuperar uma tarefa com o endpoint /tarefas/:id e método GET
+1. Acessar o endpoint `http://localhost:3000/tarefas/1` com o método GET. O retorno esperado é o texto `This action returns a #1 tarefa`.
+2. Modificar o arquivo `./src/tarefas/tarefa.controller.ts`, para configurar a resposta de retorno.
+3. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
+4. Verificar o resultado acessando o endpoint `/tarefas` com o método GET.
 
+Resultado da requisição do endpoint `/tarefas/:id` com método GET.
+```http
+HTTP/1.1 200 OK
+connection: close
+content-length: 31
+content-type: text/html; charset=utf-8
+date: Wed, 02 Aug 2023 12:51:53 GMT
+etag: W/"1f-wq4ufk1bayHWCKLBCShocPfZXBA"
+x-powered-by: Express
+
+This action returns a #1 tarefa
+
+```
+
+arquivo `./src/tarefas/tarefa.controller.ts`
+```typescript
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { TarefasService } from './tarefas.service';
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+
+@Controller('tarefas')
+export class TarefasController {
+  constructor(private readonly tarefasService: TarefasService) {}
+
+  @Post()
+  async create(@Body() createTarefaDto: CreateTarefaDto) {
+    return {
+      estado: 'ok',
+      dados: await this.tarefasService.create(createTarefaDto),
+    };
+  }
+
+  @Get()
+  async findAll() {
+    return {
+      estado: 'ok',
+      dados: await this.tarefasService.findAll(),
+    };
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    return {
+      estado: 'ok',
+      dados: await this.tarefasService.findOne(+id),
+    };
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateTarefaDto: UpdateTarefaDto) {
+    return this.tarefasService.update(+id, updateTarefaDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tarefasService.remove(+id);
+  }
+}
+
+```
+
+arquivo `./src/tarefas/tarefa.service.ts`
+```typescript
+import { Injectable } from '@nestjs/common';
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Tarefa } from './entities/tarefa.entity';
+
+@Injectable()
+export class TarefasService {
+  constructor(
+    @InjectRepository(Tarefa) private repositorio: Repository<Tarefa>,
+  ) {}
+
+  create(createTarefaDto: CreateTarefaDto) {
+    return this.repositorio.save(createTarefaDto);
+  }
+
+  findAll() {
+    return this.repositorio.find();
+  }
+
+  findOne(id: number) {
+    return this.repositorio.findOneBy({ id: id });
+  }
+
+  update(id: number, updateTarefaDto: UpdateTarefaDto) {
+    return `This action updates a #${id} tarefa`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} tarefa`;
+  }
+}
+
+```
+
+Resultado da requisição do endpoint `/tarefas/:id` com método GET.
+```http
+HTTP/1.1 200 OK
+connection: close
+content-length: 83
+content-type: application/json; charset=utf-8
+date: Wed, 02 Aug 2023 12:59:04 GMT
+etag: W/"53-XNSd8AO4uK02bxND8y6Z5k9YbNk"
+x-powered-by: Express
+
+{"estado":"ok","dados":{"id":1,"titulo":"Criar tarefa com endpoint","feito":false}}
+
+```
 
 
 
