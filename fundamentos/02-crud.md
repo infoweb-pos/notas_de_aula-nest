@@ -221,7 +221,7 @@ export class AppModule {}
 2. Modificar o arquivo `./src/tarefas/tarefa.module.ts`, para configurar o repositório com a entidade `Tarefa`.
 3. Modificar o arquivo `./src/tarefas/tarefa.controller.ts`, para configurar a resposta de retorno.
 4. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
-5. Verificar o resultado acessando o endpoint `/tarefas` com o método `POST`, passando o _json_ no corpo da requisição `{"titulo": "texto"}`.
+5. Verificar o resultado acessando o endpoint `/tarefas` com o método POST, passando o _json_ no corpo da requisição `{"titulo": "texto"}`.
 
 Resultado da requisição do endpoint `/tarefas` com método POST.
 ```http
@@ -356,11 +356,63 @@ x-powered-by: Express
 
 
 # 8. Programar para recuperar todas as tarefas com o endpoint /tarefas e método GET
-1. Acessar o endpoint `http://localhost:3000/tarefas` com o método POST. O retorno esperado é o texto `This action adds a new tarefa`.
-2. Modificar o arquivo `./src/tarefas/tarefa.module.ts`, para configurar o repositório com a entidade `Tarefa`.
-3. Modificar o arquivo `./src/tarefas/tarefa.controller.ts`, para configurar a resposta de retorno.
-4. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
-5. Verificar o resultado acessando o endpoint `/tarefas` com o método `POST`, passando o _json_ no corpo da requisição `{"titulo": "texto"}`.
+1. Acessar o endpoint `http://localhost:3000/tarefas` com o método GET. O retorno esperado é o texto `This action returns all tarefas`.
+2. Modificar o arquivo `./src/tarefas/tarefa.controller.ts`, para configurar a resposta de retorno.
+3. Modificar o arquivo `./src/tarefas/tarefa.service.ts`, para ter acesso ao repositório e ter acesso a persistência.
+4. Verificar o resultado acessando o endpoint `/tarefas` com o método GET.
+
+Resultado da requisição do endpoint `/tarefas` com método GET.
+```http
+HTTP/1.1 200 OK
+connection: close
+content-length: 31
+content-type: text/html; charset=utf-8
+date: Wed, 02 Aug 2023 12:34:45 GMT
+etag: W/"1f-UUEj2omBuP9Dbd1uus2e4t+2wTY"
+x-powered-by: Express
+
+This action returns all tarefas
+
+```
+
+arquivo `./src/tarefas/tarefa.controller.ts`
+```typescript
+
+
+```
+
+arquivo `./src/tarefas/tarefa.service.ts`
+```typescript
+
+
+```
+
+Resultado da requisição do endpoint `/tarefas` com método GET.
+```http
+HTTP/1.1 200 OK
+connection: close
+content-length: 26
+content-type: application/json; charset=utf-8
+date: Wed, 02 Aug 2023 12:39:39 GMT
+etag: W/"1a-aMQrD3lcvmFZNnh6VFpUw/+D6ts"
+x-powered-by: Express
+
+{"estado":"ok","dados":[]}
+
+```
+
+```http
+HTTP/1.1 200 OK
+connection: close
+content-length: 73
+content-type: application/json; charset=utf-8
+date: Wed, 02 Aug 2023 12:40:38 GMT
+etag: W/"49-M/G95asvbpAskhLY1uUIZ0Ifwbk"
+x-powered-by: Express
+
+{"estado":"ok","dados":[{"id":1,"titulo":"Criar tarefa para testar endpoint","feito":false}]}
+
+```
 
 
 # 9. Programar para recuperar uma tarefa com o endpoint /tarefas/:id e método GET
