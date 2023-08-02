@@ -1,6 +1,7 @@
 # Criar um projeto novo, executar e ver rotas (endpoints)
 - **Tema**: Fundamentos de Nest (API Restful)
 - **Subtema**: Fundamentos - Criar um novo projeto
+- **Repositório**: [github](https://github.com/infoweb-pos/2023-notas_de_aula-nest/)
 
 ## Objetivos
 - Criar um novo projeto javascript para uma API Restful usando o script [nest](https://nestjs.com/)
